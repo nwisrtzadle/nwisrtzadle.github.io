@@ -137,7 +137,7 @@ title: Elevate Your Academic Writing
                     <div class="price-tag">
                         <div class="price-prefix">Starting from</div>
                         <div class="price-main">
-                            <span>$49</span><span class="price-sgd">SGD</span>
+                            <span>$5</span><span class="price-sgd">SGD</span>
                         </div>
                     </div>
                     <ul class="features-list">
@@ -161,7 +161,7 @@ title: Elevate Your Academic Writing
                     <div class="price-tag">
                         <div class="price-prefix">Starting from</div>
                         <div class="price-main">
-                            <span>$29</span><span class="price-sgd">SGD</span>
+                            <span>$3</span><span class="price-sgd">SGD</span>
                         </div>
                     </div>
                     <ul class="features-list">

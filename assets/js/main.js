@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const freeEssayViewer = essayPageContainer.querySelector('#essay-viewer-content');
     const paidBundlesList = essayPageContainer.querySelector('#paid-bundles-list');
     const bundleCards = paidBundlesList.querySelectorAll('.bundle-card');
+    const bundlePaynowButtons = essayPageContainer.querySelectorAll('.bundle-paynow-btn');
     const premiumNudge = essayPageContainer.querySelector('.sidebar-premium-nudge');
 
     let currentMode = 'free';
@@ -166,8 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- PAYNOW MODAL LOGIC ---
     const paynowModal = document.getElementById('paynow-modal');
-    const openPaynowBtn = document.getElementById('open-paynow');
-    if (paynowModal && openPaynowBtn) {
+    if (paynowModal) {
         const backdrop = paynowModal.querySelector('.paynow-modal-backdrop');
         const closeBtn = paynowModal.querySelector('.paynow-modal-close');
         const bundleSelect = paynowModal.querySelector('#paynow-bundle-select');
@@ -201,7 +201,17 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         };
 
-        openPaynowBtn.addEventListener('click', openModal);
+        bundlePaynowButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const bundleName = button.dataset.bundle;
+                if (bundleName) {
+                    bundleSelect.value = bundleName;
+                    updateBundleInfo();
+                }
+                openModal();
+            });
+        });
+
         backdrop.addEventListener('click', closeModal);
         closeBtn.addEventListener('click', closeModal);
 

@@ -3,6 +3,7 @@ layout: default
 title: Loading Essay Resources...
 permalink: /essays/
 ---
+{% assign first_essay = site.essays | first %}
 
 <div class="section">
     <div class="container" style="text-align: center;">
@@ -20,7 +21,7 @@ permalink: /essays/
     // This script acts as a client-side router
     document.addEventListener('DOMContentLoaded', () => {
         // Find the URL of the very first essay in your collection
-        const firstEssayUrl = '{{ site.essays | first.url | relative_url }}';
+        const firstEssayUrl = '{{ first_essay.url | relative_url }}';
         
         // Check if the URL has '?view=paid'
         const params = new URLSearchParams(window.location.search);
