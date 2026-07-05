@@ -1,0 +1,247 @@
+---
+layout: default
+---
+<div class="essay-page-container">
+    <div class="grid-container">
+        <aside>
+            <div class="essay-sidebar">
+
+                <div class="content-tabs">
+                    <button class="tab-btn active" data-target="#essay-viewer-content">Free Essays</button>
+                    <button class="tab-btn" data-target="#paid-bundles-list">Paid Essays / Notes</button>
+                </div>
+
+                <div class="sidebar-filter-controls">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="English">English</button>
+                    <button class="filter-btn" data-filter="Geography">Geography</button>
+                </div>
+
+                <ul class="essay-list">
+                    {% for essay in site.essays %}
+                        <li data-subject="{{ essay.subject }}">
+                            <a href="{{ essay.url | relative_url }}" class="essay-list-item {% if page.url == essay.url %}active{% endif %}">
+                                <span class="item-title">{{ essay.title }}</span>
+                                <span class="item-topic">{{ essay.topic }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="sidebar-premium-nudge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7z"></path><path d="M5 22h14"></path></svg>
+                    <div>
+                        <p class="nudge-text">Want the full collections?</p>
+                        <button class="nudge-link" data-action="show-paid">Browse Premium Bundles &rarr;</button>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <main class="essay-content">
+            <div id="essay-viewer-content" class="tab-content">
+                <div class="essay-header">
+                    <div class="badge {% if page.subject == 'English' %}english-badge{% else %}geography-badge{% endif %}">{{ page.subject }}</div>
+                    <h1>{{ page.title }}</h1>
+                    <p class="topic-subtitle">{{ page.topic }}</p>
+                    <div class="essay-meta">
+                        <span>{{ page.grade_level }}</span>
+                        <span>&middot;</span>
+                        <span>Approx. {{ page.word_count }} words</span>
+                    </div>
+                </div>
+                <article class="prose">
+                    {{ content }}
+                </article>
+            </div>
+
+            <div id="paid-bundles-list" class="tab-content hidden">
+                <div class="payment-methods-banner">
+                    <div class="payment-method">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                        <span>Pay with card using the buttons below</span>
+                    </div>
+                    <button class="payment-method paynow-banner-btn" id="open-paynow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"></rect><path d="M12 12h.01"></path></svg>
+                        <span>Prefer PayNow? Pay via QR code &rarr;</span>
+                    </button>
+                </div>
+
+                <div class="bundle-grid">
+                    <div class="bundle-card" data-subject="English">
+                        <h3 class="bundle-title">Ace Your English Essays</h3>
+                        <p class="bundle-category" style="--category-color:#1e40af;">English</p>
+                        <p class="bundle-price">$49 SGD</p>
+                        <ul class="bundle-features">
+                            <li>8 Model Essays</li>
+                            <li>All Types of Questions</li>
+                            <li>Real-world Examples</li>
+                        </ul>
+                        <div class="bundle-button-wrapper">
+                        <stripe-buy-button
+                            buy-button-id="buy_btn_1SAB96GcT85xGaV7WCQJtA1k"
+                            publishable-key="pk_live_51RpobvGcT85xGaV7NiWfSH23ru2GiR6SZ56OovCSmKKJI5R8UvLj90OKgDOleSRfyvpB8Ft5DNqn2OswPzS8E2jN00R2WYOte0"
+                        >
+                        </stripe-buy-button>
+                        </div>
+                    </div>
+                    <div class="bundle-card" data-subject="English">
+                        <h3 class="bundle-title">O-Level Essay Masterclass</h3>
+                        <p class="bundle-category" style="--category-color:#1e40af;">English</p>
+                        <p class="bundle-price">$79 SGD</p>
+                        <ul class="bundle-features">
+                            <li>Years 2020 - 2025 (TYS)</li>
+                            <li>All Types of Questions</li>
+                            <li>Real-world Examples</li>
+                        </ul>
+                        <div class="bundle-button-wrapper">
+                        <stripe-buy-button
+                        buy-button-id="buy_btn_1SABNdGcT85xGaV7y9SuugOT"
+                        publishable-key="pk_live_51RpobvGcT85xGaV7NiWfSH23ru2GiR6SZ56OovCSmKKJI5R8UvLj90OKgDOleSRfyvpB8Ft5DNqn2OswPzS8E2jN00R2WYOte0"
+                        >
+                        </stripe-buy-button>
+                        </div>
+                    </div>
+                    <div class="bundle-card" data-subject="Geography">
+                        <h3 class="bundle-title">Weather & Climate</h3>
+                        <p class="bundle-category" style="--category-color:#065f46;">Geography</p>
+                        <p class="bundle-price">$29 SGD</p>
+                        <ul class="bundle-features">
+                            <li>5 Model Essays</li>
+                            <li>Deepen Your Topic Understanding</li>
+                            <li>Detailed Breakdown of Answers</li>
+                        </ul>
+                        <div class="bundle-button-wrapper">
+                        <stripe-buy-button
+                        buy-button-id="buy_btn_1SABRrGcT85xGaV7fO6WSc8k"
+                        publishable-key="pk_live_51RpobvGcT85xGaV7NiWfSH23ru2GiR6SZ56OovCSmKKJI5R8UvLj90OKgDOleSRfyvpB8Ft5DNqn2OswPzS8E2jN00R2WYOte0"
+                        >
+                        </stripe-buy-button>
+                        </div>
+                    </div>
+                    <div class="bundle-card" data-subject="Geography">
+                        <h3 class="bundle-title">Tectonics</h3>
+                        <p class="bundle-category" style="--category-color:#065f46;">Geography</p>
+                        <p class="bundle-price">$29 SGD</p>
+                        <ul class="bundle-features">
+                            <li>5 Model Essays</li>
+                            <li>Score High on this Topic</li>
+                            <li>Detailed Breakdown of Answers</li>
+                        </ul>
+                        <div class="bundle-button-wrapper">
+                        <stripe-buy-button
+                        buy-button-id="buy_btn_1SABf7GcT85xGaV7CImAfSqe"
+                        publishable-key="pk_live_51RpobvGcT85xGaV7NiWfSH23ru2GiR6SZ56OovCSmKKJI5R8UvLj90OKgDOleSRfyvpB8Ft5DNqn2OswPzS8E2jN00R2WYOte0"
+                        >
+                        </stripe-buy-button>
+                        </div>
+                    </div>
+                    <div class="bundle-card" data-subject="Geography">
+                        <h3 class="bundle-title">Tourism</h3>
+                        <p class="bundle-category" style="--category-color:#065f46;">Geography</p>
+                        <p class="bundle-price">$29 SGD</p>
+                        <ul class="bundle-features">
+                            <li>5 Model Essays</li>
+                            <li>Master Socio-Economic Topics</li>
+                            <li>Detailed Breakdown of Answers</li>
+                        </ul>
+                        <div class="bundle-button-wrapper">
+                        <stripe-buy-button
+                        buy-button-id="buy_btn_1SABh7GcT85xGaV725GHYDXh"
+                        publishable-key="pk_live_51RpobvGcT85xGaV7NiWfSH23ru2GiR6SZ56OovCSmKKJI5R8UvLj90OKgDOleSRfyvpB8Ft5DNqn2OswPzS8E2jN00R2WYOte0"
+                        >
+                        </stripe-buy-button>
+                        </div>
+                    </div>
+                    <div class="bundle-card" data-subject="Geography">
+                        <h3 class="bundle-title">Singapore</h3>
+                        <p class="bundle-category" style="--category-color:#065f46;">Geography</p>
+                        <p class="bundle-price">$29 SGD</p>
+                        <ul class="bundle-features">
+                            <li>5 Model Essays</li>
+                            <li>Apply Concepts to Local Context</li>
+                            <li>Detailed Breakdown of Answers</li>
+                        </ul>
+                        <div class="bundle-button-wrapper">
+                        <stripe-buy-button
+                        buy-button-id="buy_btn_1SABhlGcT85xGaV72snLXI39"
+                        publishable-key="pk_live_51RpobvGcT85xGaV7NiWfSH23ru2GiR6SZ56OovCSmKKJI5R8UvLj90OKgDOleSRfyvpB8Ft5DNqn2OswPzS8E2jN00R2WYOte0"
+                        >
+                        </stripe-buy-button>
+                        </div>
+                    </div>
+                    <div class="bundle-card" data-subject="Geography">
+                        <h3 class="bundle-title">Pure Geography Power Pack</h3>
+                        <p class="bundle-category" style="--category-color:#065f46;">Geography</p>
+                        <p class="bundle-price">$89 SGD</p>
+                        <ul class="bundle-features">
+                            <li>20 Model Essays (All Topics Covered)</li>
+                            <li>Comprehensive and Cost Effective Resource</li>
+                            <li>Detailed Breakdown of Answers</li>
+                        </ul>
+                        <div class="bundle-button-wrapper">
+                        <stripe-buy-button
+                        buy-button-id="buy_btn_1SABiPGcT85xGaV7fDRz4Q6o"
+                        publishable-key="pk_live_51RpobvGcT85xGaV7NiWfSH23ru2GiR6SZ56OovCSmKKJI5R8UvLj90OKgDOleSRfyvpB8Ft5DNqn2OswPzS8E2jN00R2WYOte0"
+                        >
+                        </stripe-buy-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- PayNow Modal -->
+<div id="paynow-modal" class="paynow-modal">
+    <div class="paynow-modal-backdrop"></div>
+    <div class="paynow-modal-content">
+        <button class="paynow-modal-close" aria-label="Close">&times;</button>
+        <h3 class="paynow-modal-title">Pay with PayNow</h3>
+        <div class="paynow-select-wrapper">
+            <label for="paynow-bundle-select" class="paynow-select-label">Select your bundle</label>
+            <select id="paynow-bundle-select" class="paynow-select">
+                <option value="" disabled selected>Choose a bundle...</option>
+                <option value="Ace Your English Essays" data-price="$49 SGD">Ace Your English Essays &mdash; $49 SGD</option>
+                <option value="O-Level Essay Masterclass" data-price="$79 SGD">O-Level Essay Masterclass &mdash; $79 SGD</option>
+                <option value="Weather &amp; Climate" data-price="$29 SGD">Weather &amp; Climate &mdash; $29 SGD</option>
+                <option value="Tectonics" data-price="$29 SGD">Tectonics &mdash; $29 SGD</option>
+                <option value="Tourism" data-price="$29 SGD">Tourism &mdash; $29 SGD</option>
+                <option value="Singapore" data-price="$29 SGD">Singapore &mdash; $29 SGD</option>
+                <option value="Pure Geography Power Pack" data-price="$89 SGD">Pure Geography Power Pack &mdash; $89 SGD</option>
+            </select>
+        </div>
+        <div class="paynow-bundle-info hidden">
+            <span class="paynow-bundle-name"></span>
+            <span class="paynow-bundle-price"></span>
+        </div>
+        <div class="paynow-qr">
+            <img src="{{ "/assets/images/paynow-qr.jpg" | relative_url }}" alt="PayNow QR Code" class="paynow-qr-image">
+        </div>
+        <div class="paynow-steps">
+            <h4>How to pay</h4>
+            <ol>
+                <li>Scan the QR code above, or transfer to <strong>+65 9068 6337</strong> via PayNow</li>
+                <li>Enter the exact amount for your selected bundle</li>
+                <li>In the reference field, type: <strong class="paynow-ref">your bundle name</strong></li>
+                <li>Take a screenshot of your payment confirmation</li>
+                <li>Send the screenshot via WhatsApp or email below</li>
+            </ol>
+        </div>
+        <div class="paynow-contact-links">
+            <a href="https://wa.me/6590686337" target="_blank" rel="noopener noreferrer" class="paynow-contact-btn whatsapp-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.1 16.4-1.9-1.2a1.8 1.8 0 0 0-2.5.4l-.7.9c-.2.3-.5.4-.8.2A12.6 12.6 0 0 1 8.2 9.2c-.2-.3-.1-.6.2-.8l.9-.7a1.8 1.8 0 0 0 .4-2.5l-1.2-1.9A1.8 1.8 0 0 0 4.6 2.5l-.9.4c-.9.4-1.4 1.3-1.2 2.3A18.4 18.4 0 0 0 18.8 21.7c.9.2 1.9-.3 2.3-1.2l.4-.9a1.8 1.8 0 0 0-1.4-2.2z"></path></svg>
+                WhatsApp
+            </a>
+            <a href="mailto:cheryltuition42@gmail.com" class="paynow-contact-btn email-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                Email
+            </a>
+        </div>
+        <p class="paynow-note">You'll receive your PDF within 12 hours of payment verification.</p>
+    </div>
+</div>
+
+<script src="{{ "/assets/js/main.js" | relative_url }}"></script>

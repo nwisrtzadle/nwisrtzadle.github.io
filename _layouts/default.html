@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Cheryl's Tuition</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <meta name="description" content="{{ page.description | default: site.description }}">
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    <script defer src="{{ "/assets/js/hero-canvas.js" | relative_url }}"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="{{ "/" | relative_url }}" class="site-logo">Cheryl's Tuition</a>
+
+            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav class="site-nav" id="primary-navigation">
+                <a href="{{ "/" | relative_url }}#about"{% if page.url == '/about/' %} class="active"{% endif %}>About Me</a>
+                <a href="{{ "/essays/" | relative_url }}"{% if page.url contains '/essays' or page.layout == 'essay' %} class="active"{% endif %}>Resources</a>
+                <a href="{{ "/guides/" | relative_url }}"{% if page.url contains '/guides' or page.layout == 'guide' %} class="active"{% endif %}>Writing Guides</a>
+                <a href="{{ "/tuition/" | relative_url }}"{% if page.url == '/tuition/' %} class="active"{% endif %}>Tuition</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-group">
+                        <div class="logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="footer-title">Cheryl's Tuition SG</h3>
+                            <p class="footer-subtitle">Academic Writing Guidance</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Empowering Singapore secondary school students with expertly crafted essays and academic writing
+                        guidance.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="{{ "/" | relative_url }}#free-essays">Free Essays</a>
+                    <a href="{{ "/" | relative_url }}#premium">Premium Collections</a>
+                    <a href="{{ "/" | relative_url }}#about">About Me</a>
+                    <a href="{{ "/" | relative_url }}#contact">Contact</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <a href="mailto:cheryltuition42@gmail.com" class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>cheryltuition42@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/6590686337" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path
+                                d="m21.1 16.4-1.9-1.2a1.8 1.8 0 0 0-2.5.4l-.7.9c-.2.3-.5.4-.8.2A12.6 12.6 0 0 1 8.2 9.2c-.2-.3-.1-.6.2-.8l.9-.7a1.8 1.8 0 0 0 .4-2.5l-1.2-1.9A1.8 1.8 0 0 0 4.6 2.5l-.9.4c-.9.4-1.4 1.3-1.2 2.3A18.4 18.4 0 0 0 18.8 21.7c.9.2 1.9-.3 2.3-1.2l.4-.9a1.8 1.8 0 0 0-1.4-2.2z">
+                            </path>
+                        </svg>
+                        <span>WhatsApp: +65 9068 6337</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ site.time | date: '%Y' }} Cheryl's Tuition SG. All rights reserved. | Serving Singapore Secondary School Students
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Mobile Navigation Logic ---
+            const navToggle = document.querySelector('.nav-toggle');
+            const primaryNav = document.querySelector('#primary-navigation');
+
+            if (navToggle && primaryNav) {
+                navToggle.addEventListener('click', () => {
+                    const isNavOpen = document.body.classList.contains('nav-open');
+
+                    if (isNavOpen) {
+                        document.body.classList.remove('nav-open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    } else {
+                        document.body.classList.add('nav-open');
+                        navToggle.setAttribute('aria-expanded', 'true');
+                    }
+                });
+
+                primaryNav.addEventListener('click', () => {
+                    if (document.body.classList.contains('nav-open')) {
+                        document.body.classList.remove('nav-open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            // --- Animated Text Logic ---
+            const animatedText = document.getElementById('animated-text');
+
+            if (animatedText) {
+                var words = ['effortlessly', 'beautifully', 'intuitively', 'confidently', 'with me'];
+                var wordIndex = 0;
+
+                function cycleWord() {
+                    animatedText.classList.remove('write-in');
+                    animatedText.classList.add('write-out');
+
+                    setTimeout(function () {
+                        wordIndex = (wordIndex + 1) % words.length;
+                        animatedText.textContent = words[wordIndex];
+                        animatedText.classList.remove('write-out');
+                        animatedText.classList.add('write-in');
+
+                        var holdDelay = (words[wordIndex] === 'with me') ? 3500 : 2000;
+                        setTimeout(cycleWord, holdDelay + 700);
+                    }, 350);
+                }
+
+                setTimeout(cycleWord, 1500);
+            }
+
+            // --- Accordion Logic ---
+            const allFaqItems = document.querySelectorAll('.faq-item');
+            if (allFaqItems.length > 0) {
+                allFaqItems.forEach(item => {
+                    item.addEventListener('toggle', event => {
+                        if (item.open) {
+                            allFaqItems.forEach(otherItem => {
+                                if (otherItem !== item) {
+                                    otherItem.open = false;
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+
+            // --- Scroll Reveal ---
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!prefersReducedMotion) {
+                const revealSections = document.querySelectorAll('.section');
+                revealSections.forEach(el => el.classList.add('scroll-reveal'));
+
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+                revealSections.forEach(el => revealObserver.observe(el));
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+---
+layout: essay
+title: "'Young people today are selfish'. Do you agree?"
+subject: "English"
+topic: "Youth | Argumentative Essay"
+grade_level: "Upper Secondary"
+word_count: 540
+---
+
+The ancient Greek myth of Narcissus tells of a handsome young man so captivated by his own reflection, unable to tear away from himself he eventually perished, oblivious to the world around him. Every generation tends to view the younger generation through a similar lens, labelling them as self-obsessed and selfish. While it is easy to brand today’s young people with this same accusation, a closer look reveals a generation that is far from narcissistic. I disagree entirely with the statement that young people today are selfish; instead they demonstrate profound social conscience and a pragmatic focus on survival that is often mislabelled as selfish. 
+
+Firstly, young people today exhibit a deep level of global and social awareness that directly contradicts the charge of selfishness. Their engagement with major societal issues demonstrates a concern for the collective good, not just individual gain. For example, a massive, youth-led global movement, “Fridays for Future” climate strikes, initiated by Greta Thunberg, a young climate-activist, mobilised students worldwide to demand action environmental policy. Similarly, youth-activists are at the forefront of movements for social justice and human rights. This activism proves that young people are not passive or apathetic, instead they leverage technology not just for entertainment but as a tool to organise, educate and hold institutions accountable for a future that affects everyone. 
+
+Furthermore, what is often interpreted as selfishness is more accurately a necessary focus on self-preservation in an increasingly challenging world. Today’s youth face immense economic and societal pressures that demand a high degree of self-reliance. They face a competitive economy, rising education costs, and in places like Singapore or Switzerland, a high cost of living. This forces many to prioritise building a career and achieving financial stability before all else. Youth’s focus on personal security is not born from the disregard of others, but is a pragmatic response to a system where ownership and stability is not guaranteed. Unlike the previous generations with clearer paths to home ownership and stable employment, today’s youth must be self-focused in order to simply survive. 
+
+Detractors of this view believe that youth are selfish due to their immersion in the “me-centric” culture of social media. They cite the prevalence of selfies, personal branding on platforms like Tiktok, and influencer culture as evidence of a generation so fixated on self-image and validation. This perspective argues that such digital narcissism naturally fostered a lack of concern for the community. However, this argument completely ignores that those same platforms are powerful tools for social mobilisation, connection, and dissemination of information. To dismiss an entire generation as selfish based on their use of technology is to fundamentally misunderstand how they connect with and seek to change the world around them.
+
+To conclude, the label selfishness is outdated, one that fails to capture the reality of youth experience. Far from being like Narcissus, who was trapped by his own reflection, young people today are looking through their screens and engaging with a world they are determined to improve. They are not selfish, instead they are socially conscious activists and pragmatic survivors. Their actions demonstrate a deep capacity for collective care, making the charge of selfishness not only inaccurate but unjust to their generation.

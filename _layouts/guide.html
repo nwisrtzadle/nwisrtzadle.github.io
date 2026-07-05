@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="section guide-page">
+    <div class="container guide-container">
+        <article>
+            <header class="guide-header">
+                {% if page.category %}
+                <div class="badge {% if page.category == 'Geography' %}geography-badge{% else %}english-badge{% endif %}">{{ page.category }}</div>
+                {% endif %}
+                <h1 class="guide-title">{{ page.title }}</h1>
+                {% if page.date %}
+                <time class="guide-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+                {% endif %}
+            </header>
+            <div class="prose">
+                {{ content }}
+            </div>
+        </article>
+    </div>
+</div>

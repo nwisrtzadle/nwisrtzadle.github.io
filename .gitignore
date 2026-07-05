@@ -1,0 +1,9 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.ruby-lsp/
+.DS_Store
+_ss/
+*.gem
+Gemfile.lock
